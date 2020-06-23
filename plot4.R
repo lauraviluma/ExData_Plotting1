@@ -1,5 +1,5 @@
 setwd("~/r_scripts/Exploratory analysis/ExData_Plotting1")
-power_data<-read.csv("household_power_consumption.txt", sep=";" )
+power_data<-read.csv("household_power_consumption.txt", sep=";" , na.strings="?" )
 library(dplyr)
 small_data<- filter(power_data, Date=="1/2/2007" | Date=="2/2/2007")
 small_data1<-mutate(small_data, DT=paste(Date, Time))

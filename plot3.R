@@ -1,5 +1,5 @@
 setwd("~/r_scripts/Exploratory analysis/ExData_Plotting1")
-power_data<-read.csv("household_power_consumption.txt", sep=";" )
+power_data<-read.csv("household_power_consumption.txt", sep=";" , na.strings="?")
 library(dplyr)
 small_data<- filter(power_data, Date=="1/2/2007" | Date=="2/2/2007")
 small_data1<-mutate(small_data, DT=paste(Date, Time))
@@ -18,3 +18,6 @@ with(small_data1, plot(DT, Sub_metering_1, ylab = "Energy sub metering", xlab=""
      legend("topright", lty=1, col = c(1, "red","blue"), legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
 ## Close the PNG file device
 dev.off()
+
+
+
